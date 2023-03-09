@@ -161,7 +161,7 @@ if (typeof jQuery === "undefined") {
         navTab: '<a data-id="{navTabId}" class="nav-link mt-nav-tab" data-type="{type}" data-index="{index}" data-url="{url}">{title}</a>',
         closeBtn: ' <i class="mt-close-tab mdi mdi-close" style="{style}"></i>',
         ajaxTabPane: '<div id="{tabPaneId}" class="tab-pane {class}">{content}</div>',
-        iframeTabPane: '<iframe id="{tabPaneId}" allowtransparency="true" class="tab-pane {class}" scrolling="yes" width="100%"  height:"100%"; frameborder="0" src="" seamless></iframe>'
+        iframeTabPane: '<iframe id="{tabPaneId}" allowtransparency="true" class="tab-pane {class}" scrolling="no" width="100%"  height:"100%"; frameborder="0" src="" seamless></iframe>'
     };
 
     /**
@@ -564,6 +564,9 @@ if (typeof jQuery === "undefined") {
             self.active($el.navPanelList.find('a[data-type="main"]:first').parent('li'));
             self.activeMenu($el.navPanelList.find('a[data-type="main"]:first'));
             $('.mt-tab-content').trigger('removeNode');
+            $('.dropdown-menu').children().each(function () {
+                $(this).removeClass('active');
+            });
             return self;
         },
 
@@ -912,6 +915,8 @@ if (typeof jQuery === "undefined") {
             //close tab
             handler($el.nav, 'click', '.mt-close-tab', function () {
                 self.close($(this).closest('li'));
+                var url = $(this).prev().attr("data-url");
+                $('[data-href="' + url + '"]').parent().removeClass('active');
                 return false; //避免可能的BUG
             });
             //move left
@@ -936,6 +941,15 @@ if (typeof jQuery === "undefined") {
             });
             //close other tabs
             handler($el.nav, 'click', '.mt-close-other-tabs', function () {
+                var dataUrl = $(".nav-link.mt-nav-tab.active").data("url");
+                $(".nav-link.multitabs").each(function () {
+                    var parent = $(this).parent();
+                    var url = $(this).attr('data-href');
+                    if (parent.hasClass("active") && dataUrl != url) {
+                        // 在这里编写处理父级元素有 "active" class 的代码
+                        parent.removeClass('active');
+                    }
+                });
                 self.closeOthers();
                 //return false; //避免可能的BUG
             });

@@ -131,7 +131,7 @@
                                                 <li class="nav-item dropdown">
                                                     <a href="#" class="@sonitem.TargetClass">
                                                         <i class="@sonitem.Icon"></i>
-                                                        <span>@sonitem.MenuName</span>
+                                                        <span class="dropdownspan">@sonitem.MenuName</span>
                                                     </a>
                                                     <ul class="dropdown-menu">
                                                         @{
@@ -170,7 +170,7 @@
                                         <li class="nav-item dropdown">
                                             <a href="#" class="@parenItem.TargetClass">
                                                 <i class="@parenItem.Icon"></i>
-                                                <span>@parenItem.MenuName</span>
+                                                <span class="dropdownspan">@parenItem.MenuName</span>
                                             </a>
                                             <ul class="dropdown-menu">
                                                 @{
@@ -212,9 +212,26 @@
     </div>
     <script>
         $(function () {
-            $('.sidebar-menu').children().each(function () {
+            debugger
+            var storage = JSON.parse(sessionStorage.multitabs || '{}');
+            if (storage !== null) {
+                // 遍历对象的属性并输出到控制台
+                $.each(storage, function (key, value) {
+                    var url = value.url;
+                    $('[data-href="' + url + '"]').parent().addClass('active');
+                });
+            }
+        });
+
+        //所有页面点击事件
+        $(".multitabs").on("click", function (e) {
+            $('.sidebar-menu').children().children().each(function () {
                 $(this).removeClass('active');
             });
+            var element = e.currentTarget; // 获取当前点击的元素
+            var id = $(element).attr('id'); // 获取当前点击元素的 ID 属性值
+            $("#" + id).parent().addClass("active");
+        });
     </script>
 </body>
 </html>
