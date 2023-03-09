@@ -1,0 +1,525 @@
+
+时间:2023-02-28 09:15:05.775
+日志等级:Information
+所在类:Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager
+日志信息:User profile is available. Using '"C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+
+时间:2023-02-28 09:15:05.982
+日志等级:Information
+所在类:Microsoft.Hosting.Lifetime
+日志信息:Now listening on: "https://localhost:7265"
+
+时间:2023-02-28 09:15:05.983
+日志等级:Information
+所在类:Microsoft.Hosting.Lifetime
+日志信息:Now listening on: "http://localhost:5118"
+
+时间:2023-02-28 09:15:05.985
+日志等级:Information
+所在类:Microsoft.Hosting.Lifetime
+日志信息:Application started. Press Ctrl+C to shut down.
+
+时间:2023-02-28 09:15:05.985
+日志等级:Information
+所在类:Microsoft.Hosting.Lifetime
+日志信息:Hosting environment: "Development"
+
+时间:2023-02-28 09:15:05.985
+日志等级:Information
+所在类:Microsoft.Hosting.Lifetime
+日志信息:Content root path: "D:\A\Universally\program\Web\WebAdmin.Api"
+
+时间:2023-02-28 09:15:07.331
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 GET https://localhost:7265/doc.html - -
+
+时间:2023-02-28 09:15:07.351
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 GET https://localhost:7265/doc.html - - - 401 0 - 20.8416ms
+
+时间:2023-02-28 09:15:08.714
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 GET https://localhost:7265/doc.html - -
+
+时间:2023-02-28 09:15:08.789
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 GET https://localhost:7265/doc.html - - - 200 - text/html;charset=utf-8 75.4978ms
+
+时间:2023-02-28 09:15:08.825
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+
+时间:2023-02-28 09:15:08.834
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 9.0477ms
+
+时间:2023-02-28 09:15:09.154
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+
+时间:2023-02-28 09:15:09.177
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 23.7006ms
+
+时间:2023-02-28 09:15:09.843
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 GET https://localhost:7265/v3/api-docs/swagger-config - -
+
+时间:2023-02-28 09:15:09.895
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 GET https://localhost:7265/v3/api-docs/swagger-config - - - 200 - - 52.7554ms
+
+时间:2023-02-28 09:15:09.902
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 GET https://localhost:7265/basesystem/api-docs - -
+
+时间:2023-02-28 09:15:09.948
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executing endpoint '"HTTP: GET {documentName}/api-docs"'
+
+时间:2023-02-28 09:15:10.008
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executed endpoint '"HTTP: GET {documentName}/api-docs"'
+
+时间:2023-02-28 09:15:10.009
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 GET https://localhost:7265/basesystem/api-docs - - - 200 - application/json;charset=utf-8 106.7853ms
+
+时间:2023-02-28 09:15:14.426
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 GET https://localhost:7265/api/Login/GetVierificationCode application/x-www-form-urlencoded -
+
+时间:2023-02-28 09:15:14.434
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executing endpoint '"WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)"'
+
+时间:2023-02-28 09:15:14.469
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Route matched with "{action = \"GetVierificationCode\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVierificationCode()" on controller "WebAdmin.Api.Controllers.System.LoginController" ("WebAdmin.Api").
+
+时间:2023-02-28 09:15:14.558
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executing action method "WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)" - Validation state: Valid
+
+时间:2023-02-28 09:15:14.602
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action method "WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 41.4673ms.
+
+时间:2023-02-28 09:15:14.608
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+日志信息:Executing "OkObjectResult", writing value of type '"WebAdmin.Framework.Primitives.AjaxResult`1[[WebAdmin.Domain.ViewModel.VierificeCode, WebAdmin.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+
+时间:2023-02-28 09:15:14.657
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action "WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)" in 180.4986ms
+
+时间:2023-02-28 09:15:14.658
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executed endpoint '"WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)"'
+
+时间:2023-02-28 09:15:14.658
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 GET https://localhost:7265/api/Login/GetVierificationCode application/x-www-form-urlencoded - - 200 2134 application/json;+charset=utf-8 232.4983ms
+
+时间:2023-02-28 09:15:25.263
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 POST https://localhost:7265/api/Login/UserLogin application/x-www-form-urlencoded 116
+
+时间:2023-02-28 09:15:25.269
+日志等级:Information
+所在类:Microsoft.AspNetCore.Cors.Infrastructure.CorsService
+日志信息:CORS policy execution failed.
+
+时间:2023-02-28 09:15:25.269
+日志等级:Information
+所在类:Microsoft.AspNetCore.Cors.Infrastructure.CorsService
+日志信息:Request origin "https://localhost:7265" does not have permission to access the resource.
+
+时间:2023-02-28 09:15:25.275
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executing endpoint '"WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)"'
+
+时间:2023-02-28 09:15:25.282
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Route matched with "{action = \"UserLogin\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLogin(WebAdmin.Domain.ParamModel.LoginModel)" on controller "WebAdmin.Api.Controllers.System.LoginController" ("WebAdmin.Api").
+
+时间:2023-02-28 09:15:25.349
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executing action method "WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)" - Validation state: Valid
+
+时间:2023-02-28 09:15:58.025
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ContentResultExecutor
+日志信息:Executing ContentResult with HTTP Response ContentType of "application/json; charset=utf-8"
+
+时间:2023-02-28 09:15:58.028
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action "WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)" in 32740.2224ms
+
+时间:2023-02-28 09:15:58.028
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executed endpoint '"WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)"'
+
+时间:2023-02-28 09:15:58.030
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 POST https://localhost:7265/api/Login/UserLogin application/x-www-form-urlencoded 116 - 200 88 application/json;+charset=utf-8 32766.5380ms
+
+时间:2023-02-28 09:16:04.384
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 GET https://localhost:7265/api/Login/GetVierificationCode application/x-www-form-urlencoded -
+
+时间:2023-02-28 09:16:04.391
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executing endpoint '"WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)"'
+
+时间:2023-02-28 09:16:04.391
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Route matched with "{action = \"GetVierificationCode\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVierificationCode()" on controller "WebAdmin.Api.Controllers.System.LoginController" ("WebAdmin.Api").
+
+时间:2023-02-28 09:16:04.406
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executing action method "WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)" - Validation state: Valid
+
+时间:2023-02-28 09:16:04.432
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action method "WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 26.003ms.
+
+时间:2023-02-28 09:16:04.441
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+日志信息:Executing "OkObjectResult", writing value of type '"WebAdmin.Framework.Primitives.AjaxResult`1[[WebAdmin.Domain.ViewModel.VierificeCode, WebAdmin.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+
+时间:2023-02-28 09:16:04.441
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action "WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)" in 46.5189ms
+
+时间:2023-02-28 09:16:04.442
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executed endpoint '"WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)"'
+
+时间:2023-02-28 09:16:04.443
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 GET https://localhost:7265/api/Login/GetVierificationCode application/x-www-form-urlencoded - - 200 2210 application/json;+charset=utf-8 58.7538ms
+
+时间:2023-02-28 09:16:14.747
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 POST https://localhost:7265/api/Login/UserLogin application/x-www-form-urlencoded 116
+
+时间:2023-02-28 09:16:14.748
+日志等级:Information
+所在类:Microsoft.AspNetCore.Cors.Infrastructure.CorsService
+日志信息:CORS policy execution failed.
+
+时间:2023-02-28 09:16:14.749
+日志等级:Information
+所在类:Microsoft.AspNetCore.Cors.Infrastructure.CorsService
+日志信息:Request origin "https://localhost:7265" does not have permission to access the resource.
+
+时间:2023-02-28 09:16:14.753
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executing endpoint '"WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)"'
+
+时间:2023-02-28 09:16:14.754
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Route matched with "{action = \"UserLogin\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLogin(WebAdmin.Domain.ParamModel.LoginModel)" on controller "WebAdmin.Api.Controllers.System.LoginController" ("WebAdmin.Api").
+
+时间:2023-02-28 09:16:14.779
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executing action method "WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)" - Validation state: Valid
+
+时间:2023-02-28 09:16:15.489
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action method "WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 709.9612ms.
+
+时间:2023-02-28 09:16:15.493
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+日志信息:Executing "OkObjectResult", writing value of type '"WebAdmin.Framework.Primitives.AjaxResult`1[[WebAdmin.Domain.ViewModel.LoginResult, WebAdmin.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+
+时间:2023-02-28 09:16:15.496
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action "WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)" in 737.543ms
+
+时间:2023-02-28 09:16:15.496
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executed endpoint '"WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)"'
+
+时间:2023-02-28 09:16:15.497
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 POST https://localhost:7265/api/Login/UserLogin application/x-www-form-urlencoded 116 - 200 861 application/json;+charset=utf-8 750.4723ms
+
+时间:2023-02-28 09:16:17.088
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 POST https://localhost:7265/api/Login/UserLogin application/x-www-form-urlencoded 116
+
+时间:2023-02-28 09:16:17.089
+日志等级:Information
+所在类:Microsoft.AspNetCore.Cors.Infrastructure.CorsService
+日志信息:CORS policy execution failed.
+
+时间:2023-02-28 09:16:17.089
+日志等级:Information
+所在类:Microsoft.AspNetCore.Cors.Infrastructure.CorsService
+日志信息:Request origin "https://localhost:7265" does not have permission to access the resource.
+
+时间:2023-02-28 09:16:17.093
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executing endpoint '"WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)"'
+
+时间:2023-02-28 09:16:17.093
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Route matched with "{action = \"UserLogin\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLogin(WebAdmin.Domain.ParamModel.LoginModel)" on controller "WebAdmin.Api.Controllers.System.LoginController" ("WebAdmin.Api").
+
+时间:2023-02-28 09:16:17.117
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executing action method "WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)" - Validation state: Valid
+
+时间:2023-02-28 09:16:17.118
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action method "WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 0.2448ms.
+
+时间:2023-02-28 09:16:17.122
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+日志信息:Executing "OkObjectResult", writing value of type '"WebAdmin.Framework.Primitives.AjaxResult"'.
+
+时间:2023-02-28 09:16:17.123
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action "WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)" in 26.1632ms
+
+时间:2023-02-28 09:16:17.123
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executed endpoint '"WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)"'
+
+时间:2023-02-28 09:16:17.124
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 POST https://localhost:7265/api/Login/UserLogin application/x-www-form-urlencoded 116 - 200 90 application/json;+charset=utf-8 36.5299ms
+
+时间:2023-02-28 09:16:30.442
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 GET https://localhost:7265/api/Login/GetVierificationCode application/x-www-form-urlencoded -
+
+时间:2023-02-28 09:16:30.449
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executing endpoint '"WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)"'
+
+时间:2023-02-28 09:16:30.449
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Route matched with "{action = \"GetVierificationCode\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVierificationCode()" on controller "WebAdmin.Api.Controllers.System.LoginController" ("WebAdmin.Api").
+
+时间:2023-02-28 09:16:30.465
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executing action method "WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)" - Validation state: Valid
+
+时间:2023-02-28 09:16:30.488
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action method "WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 22.8366ms.
+
+时间:2023-02-28 09:16:30.494
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+日志信息:Executing "OkObjectResult", writing value of type '"WebAdmin.Framework.Primitives.AjaxResult`1[[WebAdmin.Domain.ViewModel.VierificeCode, WebAdmin.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+
+时间:2023-02-28 09:16:30.495
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action "WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)" in 39.4042ms
+
+时间:2023-02-28 09:16:30.495
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executed endpoint '"WebAdmin.Api.Controllers.System.LoginController.GetVierificationCode (WebAdmin.Api)"'
+
+时间:2023-02-28 09:16:30.496
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 GET https://localhost:7265/api/Login/GetVierificationCode application/x-www-form-urlencoded - - 200 2178 application/json;+charset=utf-8 53.7994ms
+
+时间:2023-02-28 09:16:41.729
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 POST https://localhost:7265/api/Login/UserLogin application/x-www-form-urlencoded 116
+
+时间:2023-02-28 09:16:41.731
+日志等级:Information
+所在类:Microsoft.AspNetCore.Cors.Infrastructure.CorsService
+日志信息:CORS policy execution failed.
+
+时间:2023-02-28 09:16:41.731
+日志等级:Information
+所在类:Microsoft.AspNetCore.Cors.Infrastructure.CorsService
+日志信息:Request origin "https://localhost:7265" does not have permission to access the resource.
+
+时间:2023-02-28 09:16:41.734
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executing endpoint '"WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)"'
+
+时间:2023-02-28 09:16:41.735
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Route matched with "{action = \"UserLogin\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserLogin(WebAdmin.Domain.ParamModel.LoginModel)" on controller "WebAdmin.Api.Controllers.System.LoginController" ("WebAdmin.Api").
+
+时间:2023-02-28 09:16:41.765
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executing action method "WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)" - Validation state: Valid
+
+时间:2023-02-28 09:16:42.082
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action method "WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 316.6227ms.
+
+时间:2023-02-28 09:16:42.086
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+日志信息:Executing "OkObjectResult", writing value of type '"WebAdmin.Framework.Primitives.AjaxResult`1[[WebAdmin.Domain.ViewModel.LoginResult, WebAdmin.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+
+时间:2023-02-28 09:16:42.087
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action "WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)" in 343.0889ms
+
+时间:2023-02-28 09:16:42.087
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executed endpoint '"WebAdmin.Api.Controllers.System.LoginController.UserLogin (WebAdmin.Api)"'
+
+时间:2023-02-28 09:16:42.088
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 POST https://localhost:7265/api/Login/UserLogin application/x-www-form-urlencoded 116 - 200 861 application/json;+charset=utf-8 358.5103ms
+
+时间:2023-02-28 09:16:47.629
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 GET https://localhost:7265/test/api-docs - -
+
+时间:2023-02-28 09:16:47.633
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executing endpoint '"HTTP: GET {documentName}/api-docs"'
+
+时间:2023-02-28 09:16:47.641
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executed endpoint '"HTTP: GET {documentName}/api-docs"'
+
+时间:2023-02-28 09:16:47.656
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 GET https://localhost:7265/test/api-docs - - - 200 - application/json;charset=utf-8 26.9732ms
+
+时间:2023-02-28 09:16:54.048
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 POST https://localhost:7265/api/Test/Test application/x-www-form-urlencoded 98
+
+时间:2023-02-28 09:16:54.049
+日志等级:Information
+所在类:Microsoft.AspNetCore.Cors.Infrastructure.CorsService
+日志信息:CORS policy execution failed.
+
+时间:2023-02-28 09:16:54.050
+日志等级:Information
+所在类:Microsoft.AspNetCore.Cors.Infrastructure.CorsService
+日志信息:Request origin "https://localhost:7265" does not have permission to access the resource.
+
+时间:2023-02-28 09:16:54.055
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executing endpoint '"WebAdmin.Api.Controllers.BaseSystem.TestController.Test (WebAdmin.Api)"'
+
+时间:2023-02-28 09:16:54.063
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Route matched with "{action = \"Test\", controller = \"Test\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(WebAdmin.Domain.EntityBase.Pagination)" on controller "WebAdmin.Api.Controllers.BaseSystem.TestController" ("WebAdmin.Api").
+
+时间:2023-02-28 09:16:54.221
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executing action method "WebAdmin.Api.Controllers.BaseSystem.TestController.Test (WebAdmin.Api)" - Validation state: Invalid
+
+时间:2023-02-28 09:16:54.449
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action method "WebAdmin.Api.Controllers.BaseSystem.TestController.Test (WebAdmin.Api)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 227.6277ms.
+
+时间:2023-02-28 09:16:54.454
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+日志信息:Executing "OkObjectResult", writing value of type '"WebAdmin.Framework.Primitives.AjaxResultPagedList`1[[WebAdmin.Entity.Base.UserEntity, WebAdmin.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+
+时间:2023-02-28 09:16:54.463
+日志等级:Information
+所在类:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+日志信息:Executed action "WebAdmin.Api.Controllers.BaseSystem.TestController.Test (WebAdmin.Api)" in 396.3452ms
+
+时间:2023-02-28 09:16:54.464
+日志等级:Information
+所在类:Microsoft.AspNetCore.Routing.EndpointMiddleware
+日志信息:Executed endpoint '"WebAdmin.Api.Controllers.BaseSystem.TestController.Test (WebAdmin.Api)"'
+
+时间:2023-02-28 09:16:54.464
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 POST https://localhost:7265/api/Test/Test application/x-www-form-urlencoded 98 - 200 3918 application/json;+charset=utf-8 416.8223ms

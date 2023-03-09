@@ -1,0 +1,35 @@
+
+时间:2023-03-07 14:52:22.274
+日志等级:Warning
+所在类:Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware
+日志信息:Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+
+时间:2023-03-07 17:22:10.740
+日志等级:Warning
+所在类:Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware
+日志信息:Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+
+时间:2023-03-07 17:25:02.260
+日志等级:Warning
+所在类:Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware
+日志信息:Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+
+时间:2023-03-07 17:25:05.829
+日志等级:Warning
+所在类:Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware
+日志信息:Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+
+时间:2023-03-07 17:25:26.996
+日志等级:Warning
+所在类:Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware
+日志信息:Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+
+时间:2023-03-07 17:32:48.477
+日志等级:Warning
+所在类:Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware
+日志信息:Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+
+时间:2023-03-07 17:38:17.686
+日志等级:Warning
+所在类:Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware
+日志信息:Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.

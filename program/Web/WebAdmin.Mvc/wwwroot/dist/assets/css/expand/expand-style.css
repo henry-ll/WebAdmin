@@ -1,0 +1,44 @@
+﻿/** ----------------------------------
+ * 页面加载loading
+ -------------------------------------- */
+#lyear-loading {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 48px);
+    z-index: 9990;
+    background: var(--bs-body-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 标签页 */
+.nav-tabs {
+    border-color: var(--bs-border-color);
+    margin-bottom: 1rem;
+}
+
+    .nav-tabs .nav-link {
+        color: var(--bs-body-color);
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        border-radius: 0px;
+    }
+
+        .nav-tabs .nav-link:hover,
+        .nav-tabs .nav-link:focus {
+            color: var(--bs-body-color);
+            border-color: var(--bs-primary);
+        }
+
+        .nav-tabs .nav-link.active,
+        .nav-tabs .nav-item.show .nav-link {
+            color: var(--bs-body-color);
+            background-color: var(--bs-white);
+            border-color: var(--bs-primary);
+        }
+
+.tab-content > .tab-pane {
+    overflow: inherit !important;
+}

@@ -1,0 +1,21 @@
+﻿global using System;
+global using SqlSugar;
+global using X.PagedList;
+global using System.Linq;
+global using System.Text;
+global using System.Data;
+global using System.Data.Common;
+global using System.Threading.Tasks;
+global using System.Linq.Expressions;
+global using System.Collections.Generic;
+
+global using WebAdmin.Infrastructure;
+global using WebAdmin.Framework.Util;
+global using SqlSugar.Sharding.SqlServer;
+global using WebAdmin.Domain.EntityBase;
+global using WebAdmin.Entity.Base;
+global using WebAdmin.Framework.Providers;
+global using WebAdmin.Framework.Exceptions;
+global using WebAdmin.Framework.Extentions;
+global using WebAdmin.Infrastructure.Base;
+global using WebAdmin.Framework.Extentions.Exceptions;

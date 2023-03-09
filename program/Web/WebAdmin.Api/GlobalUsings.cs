@@ -1,0 +1,26 @@
+﻿global using System;
+global using Serilog;
+global using System.Net;
+global using System.Text;
+global using System.Data;
+global using AutoMapper;
+global using ILogger = Serilog.ILogger;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Mvc.Filters;
+global using Microsoft.AspNetCore.Authorization;
+
+global using WebAdmin.Api.Filters;
+global using WebAdmin.Entity.Base;
+global using WebAdmin.Service.Base;
+global using WebAdmin.Framework.Util;
+global using WebAdmin.Framework.Helper;
+global using WebAdmin.Framework.Enums;
+global using WebAdmin.Framework.Caches;
+global using WebAdmin.Infrastructure.Base;
+global using WebAdmin.Domain.EntityBase;
+global using WebAdmin.Framework.Configs;
+global using WebAdmin.Framework.Operators;
+global using WebAdmin.Framework.Exceptions;
+global using WebAdmin.Domain.Api.DtoModel;
+global using WebAdmin.Domain.Api.ViewModel;

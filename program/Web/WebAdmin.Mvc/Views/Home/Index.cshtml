@@ -1,0 +1,220 @@
+﻿@{
+    Layout = null;
+}
+@using Microsoft.AspNetCore.Mvc;
+@using Newtonsoft.Json;
+@using WebAdmin.Repositories.Base;
+@using WebAdmin.Framework.Helper;
+@using Microsoft.AspNetCore.Http;
+@using WebAdmin.Framework.Configs;
+@using WebAdmin.Framework.Operators;
+@inject RolesUserRepository rolesUserRepository
+@inject RolesUserPermissionRepository rolesUserPermissionRepository
+@inject MenuTreeRepository menuTreeRepository
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>WebAdmin</title>
+    <link rel="icon" href="~/dist/assets/iocn/globe.png" />
+    <link rel="stylesheet" href="~/dist/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/dist/assets/css/style.min.css">
+    <link rel="stylesheet" href="~/dist/assets/css/components.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/summernote/summernote-bs4.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/owlcarousel2/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/owlcarousel2/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/jquery-selectric/selectric.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/izitoast/css/iziToast.min.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/bootstrap-multitabs/multitabs.min.css">
+    <link rel="stylesheet" href="~/dist/assets/css/expand/expand-style.css">
+    <link rel="stylesheet" href="~/dist/assets/css/animate.min.css">
+    <link rel="stylesheet" href="~/dist/assets/css/materialdesignicons.min.css">
+    <script src="~/dist/assets/js/jquery.min.js"></script>
+    <script src="~/dist/assets/js/expand/index.min.js"></script>
+    <script src="~/dist/assets/js/jquery.md5.js"></script>
+    <script src="~/dist/assets/js/jquery.form.min.js"></script>
+    <script src="~/dist/assets/js/popper.min.js"></script>
+    <script src="~/dist/assets/js/tooltip.js"></script>
+    <script src="~/dist/assets/js/bootstrap.min.js"></script>
+    <script src="~/dist/assets/js/jquery.nicescroll.min.js"></script>
+    <script src="~/dist/assets/js/moment.min.js"></script>
+    <script src="~/dist/assets/js/stisla.js"></script>
+    <script src="~/dist/assets/modules/izitoast/js/iziToast.min.js"></script>
+    <script src="~/dist/assets/js/page/modules-toastr.js"></script>
+    <script src="~/dist/assets/js/scripts.js"></script>
+    <script src="~/dist/assets/js/custom.js"></script>
+    <script src="~/dist/assets/js/bootstrap-treeview.js"></script>
+    <script src="~/dist/assets/modules/select2/dist/js/select2.full.min.js"></script>
+    <script src="~/dist/assets/modules/bootstrap-multitabs/multitabs.js"></script>
+    <script src="~/dist/assets/js/jquery.cookie.min.js"></script>
+    <script src="~/dist/assets/js/lyear-loading.js"></script>
+</head>
+@{
+    CryptoHelper crypto = new CryptoHelper();
+    var cookie = Config.GetValue("SCKey")?.Trim();
+    Context.Request.Cookies.TryGetValue(cookie, out string? strAdmin);
+    strAdmin = crypto.AesDecrypt(strAdmin, CryptoHelper.AesKey);
+    JwtOperator? operators = JsonConvert.DeserializeObject<JwtOperator>(strAdmin);
+    //获取权限
+    var entity = rolesUserRepository.Queryable().Where(x => x.UserId == operators.UserId).First();
+    string? roleId = entity == null ? "-1" : entity.RoleId;
+    var rolesList = rolesUserPermissionRepository.Queryable().Where(x => x.RoleId == roleId).ToList();
+    var treeList = menuTreeRepository.Queryable().Where(x => x.EnabledMark == 1).OrderBy(x => x.SortCode).ToList();
+}
+<body>
+    <div id="app">
+        <div class="main-wrapper">
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <div class="form-inline mr-auto">
+                    <ul class="navbar-nav mr-3">
+                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <img alt="image" src="~/dist/assets/img/avatar/avatar-1.png" width="30" class="rounded-circle mr-1">
+                            <div class="d-sm-none d-lg-inline-block">Hi, @operators.UserName</div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-title" style="text-align: center;">本次登录于@(((TimeSpan)(DateTime.Now - operators.SignInTime)).Minutes.ToString())分钟前</div>
+                            @*<a href="features-settings.html" class="dropdown-item has-icon">
+                            <i class="fas fa-cog"></i> Settings
+                            </a>*@
+                            <div class="dropdown-divider"></div>
+                            <a href="@Href("~")/Home/SafeLogout" class="dropdown-item has-icon text-danger">
+                                <i class="fas fa-sign-out-alt"></i> 安全退出
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main-sidebar">
+                <aside id="sidebar-wrapper">
+
+                    <div class="sidebar-brand">
+                        <a class="multitabs" data-href="@Href("~")/Home/Page" id="default-page">WebAdmin</a>
+                    </div>
+                    <div class="sidebar-brand sidebar-brand-sm">
+                        <a class="multitabs" data-href="@Href("~")/Home/Page">Ht</a>
+                    </div>
+                    <ul class="sidebar-menu">
+                        @if (rolesList.Count > 0 && rolesList != null)
+                        {
+                            int number = 0;
+                            var parentList = treeList.Where(m => m.ParentId == "0").OrderBy(m => m.SortCode).ToList();
+                            foreach (var parenItem in parentList)
+                            {
+                                number = rolesList.Where(m => m.MenuId == parenItem.Id).Count();
+                                if (number > 0)
+                                {
+                                    if (parenItem.TargetClass == "menu-header")//菜单标题头
+                                    {
+                                        <li class="@parenItem.TargetClass">@parenItem.MenuName</li>
+                                        var sonList = treeList.Where(m => m.ParentId == parenItem.Id).OrderBy(m => m.SortCode).ToList();
+                                        if (sonList != null && sonList.Count > 0)
+                                        {
+                                            foreach (var sonitem in sonList)
+                                            {
+                                                if (rolesList.Where(m => m.MenuId == sonitem.Id).Count() <= 0)
+                                                    continue;
+                                                <li class="nav-item dropdown">
+                                                    <a href="#" class="@sonitem.TargetClass">
+                                                        <i class="@sonitem.Icon"></i>
+                                                        <span>@sonitem.MenuName</span>
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        @{
+                                                            var grandsonList = treeList.Where(m => m.ParentId == sonitem.Id).OrderBy(m => m.SortCode).ToList();
+                                                            if (grandsonList != null && grandsonList.Count > 0)
+                                                            {
+                                                                foreach (var grandsonitem in grandsonList)
+                                                                {
+                                                                    if (rolesList.Where(m => m.MenuId == grandsonitem.Id).Count() <= 0)
+                                                                        continue;
+                                                                    <li>
+                                                                        <a class="nav-link multitabs" data-href="@Href("~")@grandsonitem.CoreUrl" id="@grandsonitem.Id">
+                                                                            <i class="@grandsonitem.Icon"></i>
+                                                                            <span>@grandsonitem.MenuName</span>
+                                                                        </a>
+                                                                    </li>
+                                                                }
+                                                            }
+                                                        }
+                                                    </ul>
+                                                </li>
+                                            }
+                                        }
+                                    }
+                                    else if (parenItem.TargetClass == "nav-link")
+                                    {
+                                        <li>
+                                            <a class="@parenItem.TargetClass multitabs" data-href="@Href("~")@parenItem.CoreUrl" id="@parenItem.Id">
+                                                <i class="@parenItem.Icon"></i>
+                                                <span>@parenItem.MenuName</span>
+                                            </a>
+                                        </li>
+                                    }
+                                    else if (parenItem.TargetClass == "nav-link has-dropdown")
+                                    {
+                                        <li class="nav-item dropdown">
+                                            <a href="#" class="@parenItem.TargetClass">
+                                                <i class="@parenItem.Icon"></i>
+                                                <span>@parenItem.MenuName</span>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                @{
+                                                    var grandsonList = treeList.Where(m => m.ParentId == parenItem.Id).OrderBy(m => m.SortCode).ToList();
+                                                    if (grandsonList != null && grandsonList.Count > 0)
+                                                    {
+                                                        foreach (var grandsonitem in grandsonList)
+                                                        {
+                                                            if (rolesList.Where(m => m.MenuId == grandsonitem.Id).Count() <= 0)
+                                                                continue;
+                                                            <li>
+                                                                <a class="nav-link multitabs" data-href="@Href("~")@grandsonitem.CoreUrl" id="@grandsonitem.Id">
+                                                                    <i class="@grandsonitem.Icon"></i>
+                                                                    <span>@grandsonitem.MenuName</span>
+                                                                </a>
+                                                            </li>
+                                                        }
+                                                    }
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
+                                }
+                            }
+                        }
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div id="iframe-content" class="main-content"></div>
+        <footer class="main-footer">
+            <div class="footer-left">
+                Copyright © 2023 <div class="bullet"></div> Design By <a href="#">   Henry</a>
+            </div>
+            <div class="footer-right">
+            </div>
+        </footer>
+    </div>
+    <script>
+        $(function () {
+            $('.sidebar-menu').children().each(function () {
+                $(this).removeClass('active');
+            });
+    </script>
+</body>
+</html>

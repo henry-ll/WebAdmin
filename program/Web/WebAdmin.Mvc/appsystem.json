@@ -1,0 +1,36 @@
+{
+  "AppSystem": {
+    "AppSettings": [
+      // ================== 1：开发系统相关配置 ==================
+      {
+        //后台登陆提供者模式：Session、Cookie,
+        "key": "LoginProvider",
+        "value": "Cookie"
+      },
+      {
+        //：Session、Cookie的Key名称
+        "key": "SCKey",
+        "value": "webadmin_userkey"
+      },
+      // ================== 2：系统软件参数配置 ==================
+      {
+        // 系统名称,
+        "key": "SystemName",
+        "value": "WebAdmin.Api"
+      },
+      {
+        // 软件名称,
+        "key": "SoftName",
+        "value": "WebAdmin.Api"
+      },
+      {
+        "key": "webpath", //webapi
+        "value": "D:\\"
+      },
+      {
+        "key": "webhost", //web的网址
+        "value": "http://127.0.0.1"
+      }
+    ]
+  }
+}

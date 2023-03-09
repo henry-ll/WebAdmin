@@ -1,0 +1,49 @@
+﻿using System.Net.Http.Json;
+using Serilog;
+namespace WebAdmin.Framework.IPLocator;
+
+/// <summary>
+/// 默认定位实现类
+/// </summary>
+public class DefaultIPLocator : IIPLocator
+{
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
+    /// <param name="option"></param>
+    /// <returns></returns>
+    public virtual Task<string?> Locate(IPLocatorOption option) => Task.FromResult<string?>(null);
+
+    /// <summary>
+    /// 获得/设置 IP定位器请求地址
+    /// </summary>
+    public string? Url { get; set; }
+
+    /// <summary>
+    /// 泛型定位方法
+    /// </summary>
+    /// <param name="option"></param>
+    /// <returns></returns>
+    protected virtual async Task<string?> Locate<T>(IPLocatorOption option) where T : class
+    {
+        string? ret = null;
+        if (!string.IsNullOrEmpty(Url) && !string.IsNullOrEmpty(option.IP) && option.HttpClient != null)
+        {
+            var url = string.Format(Url, option.IP);
+            try
+            {
+                using var token = new CancellationTokenSource(option.RequestTimeout);
+                var result = await option.HttpClient.GetFromJsonAsync<T>(url, token.Token);
+                if (result != null)
+                {
+                    ret = result.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                option.Logger?.Error(ex, "Url: {url}", url);
+            }
+        }
+        return ret;
+    }
+}

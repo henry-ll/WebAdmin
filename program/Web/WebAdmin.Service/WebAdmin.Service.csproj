@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SqlSugar.Sharding.Redis\SqlSugar.Sharding.Redis.csproj" />
+    <ProjectReference Include="..\SqlSugar.Sharding.SqlServer\SqlSugar.Sharding.SqlServer.csproj" />
+    <ProjectReference Include="..\WebAdmin.Framework\WebAdmin.Framework.csproj" />
+    <ProjectReference Include="..\WebAdmin.Infrastructure\WebAdmin.Infrastructure.csproj" />
+    <ProjectReference Include="..\WebAdmin.Repositories\WebAdmin.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

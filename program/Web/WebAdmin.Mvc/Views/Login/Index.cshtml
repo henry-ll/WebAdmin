@@ -1,0 +1,184 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "登录";
+}
+@using System;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>登录</title>
+    <link rel="icon" href="~/dist/assets/iocn/globe.png" />
+    <link rel="stylesheet" href="~/dist/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/dist/assets/css/all.css">
+    <link rel="stylesheet" href="~/dist/assets/css/bootstrap-social.css">
+    <link rel="stylesheet" href="~/dist/assets/modules/prism/prism.css">
+    <link rel="stylesheet" href="~/dist/assets/css/style.css">
+    <link rel="stylesheet" href="~/dist/assets/css/components.css">
+    <link rel="stylesheet" href="~/dist/assets/css/animate.min.css">
+    <link rel="stylesheet" href="~/dist/assets/css/expand/expand-alert.css">
+</head>
+<body>
+    <div id="app">
+        <section class="section">
+            <div class="d-flex flex-wrap align-items-stretch">
+                <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
+                    <div class="p-4 m-3" id="textBoxs">
+                        <img src="~/dist/assets/img/stisla-fill.svg" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
+                        <h4 class="text-dark font-weight-normal"><span class="font-weight-bold">欢迎使用</span></h4>
+                        <p class="text-muted"></p>
+                        <form method="POST" action="@Href("~")/Login/CheckLogin" onsubmit="return check()" class="needs-validation" novalidate="" id="form1">
+                            <div class="form-group">
+                                <label for="UserName">账号</label>
+                                <input id="username" type="text" class="form-control" name="username" tabindex="1" required autofocus maxlength="30">
+                                <div class="invalid-feedback">
+                                    请填写账号
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="d-block">
+                                    <label for="password" class="control-label">密码</label>
+                                </div>
+                                <input id="password" type="password" class="form-control" name="password" tabindex="2" required maxlength="30">
+                                <input type="hidden" id="md5_password" name="md5_password">
+                                <div class="invalid-feedback">
+                                    请填写密码
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="d-block">
+                                    <label for="VierificationCode" class="control-label">验证码</label>
+                                </div>
+                                <input id="verifyCode" type="text" class="form-control" name="verifyCode" tabindex="3" required style="width:55%;float:left" maxlength="10">
+                                <img src="" alt="" id="VerificateCode" title="看不清，再换一张" style="width: 95px;" onclick="GetVierificationCode()" onerror="this.src='@Href("~")/dist/assets/img/VerificateCode.png';this.οnerrοr=null">
+                                <input type="hidden" id="uuid" name="uuid" />
+                                <div class="invalid-feedback">
+                                    请填写验证码
+                                </div>
+                            </div>
+                            <div class="form-group text-right">
+                                <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="5" id="btnlogin">
+                                    登录
+                                </button>
+                            </div>
+                        </form>
+                        <div class="text-center mt-5 text-small">
+                            Copyright &copy; 2023.💙Henry
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" data-background="@Href("~")/dist/assets/img/unsplash/login-bg.jpg">
+                    <div class="absolute-bottom-left index-2">
+                        <div class="text-light p-5 pb-2">
+                            <div class="mb-5 pb-3">
+                                @{
+                                    if (DateTime.Now.Hour >= 3 && DateTime.Now.Hour < 12)
+                                    {
+                                        <h1 class="mb-2 display-4 font-weight-bold">Good Morning </h1>
+                                    }
+                                    else if (DateTime.Now.Hour >= 12 && DateTime.Now.Hour < 19)
+                                    {
+                                        <h1 class="mb-2 display-4 font-weight-bold">Good Nooning </h1>
+                                    }
+                                    else
+                                    {
+                                        <h1 class="mb-2 display-4 font-weight-bold">Good Evening </h1>
+                                    }
+                                }
+                                <h5 class="font-weight-normal text-muted-transparent">Bali, Indonesia</h5>
+                            </div>
+                            Photo by <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</a> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="modal-2" style="display:none;"></button>
+        </section>
+    </div>
+    <script src="~/dist/assets/js/jquery.min.js"></script>
+    <script src="~/dist/assets/js/jquery.form.min.js"></script>
+    <script src="~/dist/assets/js/popper.min.js"></script>
+    <script src="~/dist/assets/js/bootstrap.min.js"></script>
+    <script src="~/dist/assets/js/jquery.nicescroll.min.js"></script>
+    <script src="~/dist/assets/js/moment.min.js"></script>
+    <script src="~/dist/assets/js/stisla.js"></script>
+    <script src="~/dist/assets/js/bootstrap-expandalert.js"></script>
+    <script src="~/dist/assets/js/jquery.md5.js"></script>
+    <script src="~/dist/assets/js/scripts.js"></script>
+    <script src="~/dist/assets/js/custom.js"></script>
+    <script src="~/dist/assets/modules/prism/prism.js"></script>
+    <script src="~/dist/assets/js/page/bootstrap-modal.js"></script>
+    <script src="~/dist/assets/js/bootstrap-notify.min.js?v=1"></script>
+    <!-- Event -->
+    <script>
+        $(function () {
+            GetVierificationCode();
+            $("#form1").ajaxForm(function (data) {
+                if (data.code == 0) {
+                    showNotify(data.msg, 'danger', 1500);
+                    GetVierificationCode();
+                    $("#verifyCode").val("");
+                    $("#btnlogin").removeClass("btn-progress");
+                }
+                else {
+                    showNotify(data.msg, 'success', 1500);
+                    window.location.href = "@Href("~")/Home/Index";
+                }
+            });
+            if ('@ViewBag.Messtype' == '1') {
+                $(".modal-title").text("温馨提示");
+                $(".modal-body").text("该账号已在其他地方登录，请重新登录");
+                document.getElementById("modal-2").click();
+            }
+            else if ('@ViewBag.Messtype' == '2') {
+                $(".modal-title").text("温馨提示");
+                $(".modal-body").text("登录已失效，请重新登录");
+                document.getElementById("modal-2").click();
+            }
+        })
+    </script>
+
+    <script>
+        function check() {
+            var username = $.trim($("#username").val());
+            if (username.length <= 0) {
+                return false;
+            }
+            var password = $.trim($("#password").val());
+            if (password.length <= 0) {
+                return false;
+            }
+            else {
+                var md5_password = $.md5(password);
+                $("#md5_password").val(md5_password);
+            }
+            var verifycode = $("#verifyCode").val();
+            if (verifycode.length <= 0) {
+                return false;
+            }
+            $("#btnlogin").addClass("btn-progress");
+        }
+    </script>
+    <!-- AJAX -->
+    <script>
+        function GetVierificationCode() {
+            $.ajax({
+                type: "Get",
+                dataType: "json",
+                url: "@Href("~")/Login/VerifyCode",
+                async: false,
+                success: function (data) {
+                    var base64 = data.data.imgBase64;
+                    var imgbase64 = "data:image/png;base64," + base64;
+                    $("#VerificateCode").attr("src", imgbase64);
+                    $("#uuid").val(data.data.uuid);
+                    $("#verifyCode").val("");
+                }
+            })
+        }
+    </script>
+</body>
+</html>
+
+

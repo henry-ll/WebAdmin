@@ -1,0 +1,40 @@
+
+时间:2023-03-03 16:27:03.141
+日志等级:Information
+所在类:Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager
+日志信息:User profile is available. Using '"C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+
+时间:2023-03-03 16:27:03.409
+日志等级:Information
+所在类:Microsoft.Hosting.Lifetime
+日志信息:Now listening on: "https://localhost:7265"
+
+时间:2023-03-03 16:27:03.410
+日志等级:Information
+所在类:Microsoft.Hosting.Lifetime
+日志信息:Now listening on: "http://localhost:5118"
+
+时间:2023-03-03 16:27:03.414
+日志等级:Information
+所在类:Microsoft.Hosting.Lifetime
+日志信息:Application started. Press Ctrl+C to shut down.
+
+时间:2023-03-03 16:27:03.414
+日志等级:Information
+所在类:Microsoft.Hosting.Lifetime
+日志信息:Hosting environment: "Development"
+
+时间:2023-03-03 16:27:03.414
+日志等级:Information
+所在类:Microsoft.Hosting.Lifetime
+日志信息:Content root path: "D:\A\Universally\program\Web\WebAdmin.Api"
+
+时间:2023-03-03 16:27:05.451
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request starting HTTP/2 GET https://localhost:7265/doc.html - -
+
+时间:2023-03-03 16:27:05.490
+日志等级:Information
+所在类:Microsoft.AspNetCore.Hosting.Diagnostics
+日志信息:Request finished HTTP/2 GET https://localhost:7265/doc.html - - - 401 0 - 45.0963ms

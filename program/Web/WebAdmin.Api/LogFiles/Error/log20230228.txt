@@ -1,0 +1,27 @@
+
+时间:2023-02-28 09:15:57.983
+日志等级:Error
+所在类:
+日志信息:Redis服务未启用，请开启该服务，并且请注意端口号，Redis默认使用6379端口号。
+System.Exception: Redis服务未启用，请开启该服务，并且请注意端口号，Redis默认使用6379端口号。
+   at SugarRedis.SugarRedisClient.GetRedisConnection()
+   at SugarRedis.SugarRedisClient..ctor(String redisConfiguration)
+   at SqlSugar.Sharding.Redis.RedisCache.get__service() in D:\A\Universally\program\Web\SqlSugar.Sharding.Redis\RedisCache.cs:line 42
+   at SqlSugar.Sharding.Redis.RedisCache.GetAllKey[T]() in D:\A\Universally\program\Web\SqlSugar.Sharding.Redis\RedisCache.cs:line 102
+   at SqlSugar.CacheSchemeMain.RemoveCache(ICacheService cacheService, String tableName)
+   at SqlSugar.UpdateableProvider`1.<RemoveDataCache>b__122_0()
+   at SqlSugar.UpdateableProvider`1.After(String sql)
+   at SqlSugar.UpdateableProvider`1.ExecuteCommand()
+   at SqlSugar.Sharding.SqlServer.Database.Update[T](T entity, Boolean IsAll) in D:\A\Universally\program\Web\SqlSugar.Sharding.SqlServer\Database\Database.cs:line 282
+   at SqlSugar.Sharding.SqlServer.Repository`1.Update(T entity, Boolean all) in D:\A\Universally\program\Web\SqlSugar.Sharding.SqlServer\Repository\Repository.T.cs:line 147
+   at WebAdmin.Repositories.BaseRepository`1.ApiSaveForm(String keyValue, T entity, Boolean all) in D:\A\Universally\program\Web\WebAdmin.Repositories\BaseRepository.cs:line 93
+   at WebAdmin.Service.Base.UserService.CheckLogin(String username, String password) in D:\A\Universally\program\Web\WebAdmin.Service\Base\UserService.cs:line 120
+   at WebAdmin.Api.Controllers.System.LoginController.UserLogin(LoginModel model) in D:\A\Universally\program\Web\WebAdmin.Api\Controllers\BaseSystem\LoginController.cs:line 81
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)

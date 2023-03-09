@@ -1,0 +1,5 @@
+
+时间:2023-03-06 16:58:43.675
+日志等级:Warning
+所在类:Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware
+日志信息:Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
