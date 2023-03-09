@@ -12,7 +12,6 @@ namespace WebAdmin.Entity.Log
     [SugarTable("Log_DBlogs", TableDescription = "DB执行语句表")]
     public class DBlogsEntity
     {
-        ///
         #region 实体成员
         /// <summary>
         /// DB执行语句表主键Id
