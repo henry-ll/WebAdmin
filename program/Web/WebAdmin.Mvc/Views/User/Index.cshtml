@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using X.PagedList;
 @using X.PagedList.Mvc.Bootstrap4.Core;
@@ -8,306 +8,332 @@
 @using System.Linq;
 @using WebAdmin.Entity.Base;
 @model IPagedList<UserEntity>;
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>WebAdmin</title>
-    <link rel="icon" href="~/dist/assets/iocn/globe.png" />
-    <link rel="stylesheet" href="~/dist/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="~/dist/assets/css/style.min.css">
-    <link rel="stylesheet" href="~/dist/assets/css/components.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/jqvmap/dist/jqvmap.min.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/summernote/summernote-bs4.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/owlcarousel2/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/owlcarousel2/dist/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/jquery-selectric/selectric.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/izitoast/css/iziToast.min.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/select2/dist/css/select2.min.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
-    <link rel="stylesheet" href="~/dist/assets/modules/select2/dist/css/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="~/dist/assets/modules/bootstrap-multitabs/multitabs.min.css">
-    <script src="~/dist/assets/js/jquery.min.js"></script>
-    <script src="~/dist/assets/js/jquery.md5.js"></script>
-    <script src="~/dist/assets/js/jquery.form.min.js"></script>
-    <script src="~/dist/assets/js/popper.min.js"></script>
-    <script src="~/dist/assets/js/tooltip.js"></script>
-    <script src="~/dist/assets/js/bootstrap.min.js"></script>
-    <script src="~/dist/assets/js/jquery.nicescroll.min.js"></script>
-    <script src="~/dist/assets/js/moment.min.js"></script>
-    <script src="~/dist/assets/js/stisla.js"></script>
-    <script src="~/dist/assets/modules/izitoast/js/iziToast.min.js"></script>
-    <script src="~/dist/assets/js/page/modules-toastr.js"></script>
-    <script src="~/dist/assets/js/scripts.js"></script>
-    <script src="~/dist/assets/js/custom.js"></script>
-    <script src="~/dist/assets/js/bootstrap-treeview.js"></script>
-    <script src="~/dist/assets/modules/select2/dist/js/select2.full.min.js"></script>
-    <script src="~/dist/assets/modules/bootstrap-multitabs/multitabs.min.js"></script>
-    <script src="~/dist/assets/js/jquery.cookie.min.js"></script>
-    @*<script src="~/dist/assets/js/expand/index.min.js"></script>*@
-    <style>
-        .pagination-container {
-            float: right;
-        }
-    </style>
-</head>
-<body>
-    <section class="section">
-        <div class="section-header">
-            <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">系统功能</a></div>
-                <div class="breadcrumb-item"><a href="#">系统设置</a></div>
-                <div class="breadcrumb-item">管理页面</div>
-            </div>
-            <span style="margin-right: 10px;"></span>
-            <a href="javascript:location.replace(location.href);" title="刷新" class="btn btn-icon btn-success" style="margin-left: auto;"><i class="fas fa-redo"></i></a>
-        </div>
-        <div class="section-body">
-            <h2 class="section-title">说明</h2>
-            <p class="section-lead">用于管理后台登录的用户.</p>
 
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>
-                                <i class="far fa-add"><a href="@Href("~")/User/CreateUser" class="btn btn-icon icon-left btn-primary"> 添加</a></i>
-                            </h4>
-                            <div class="card-header-action">
+<section class="section">
+    <div class="section-header">
+        <div class="section-header-breadcrumb">
+            <div class="breadcrumb-item active"><a href="#">系统功能</a></div>
+            <div class="breadcrumb-item"><a href="#">系统设置</a></div>
+            <div class="breadcrumb-item">用户管理</div>
+        </div>
+        <span style="margin-right: 10px;"></span>
+        <a href="javascript:location.replace(location.href);" title="刷新" class="btn btn-icon btn-success" style="margin-left: auto;background-color: #30BB58 !important;"><i class="fas fa-redo"></i></a>
+    </div>
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>
+                            <i class="far fa-add"><a href="@Href("~")/User/CreateUser" class="btn btn-icon icon-left btn-primary"> 添加</a></i>
+                        </h4>
+                        <div class="card-header-action">
+                            <form onsubmit="return check()">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="请输入查询条件" id="Categorykey" name="Categorykey">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                            <a class="btn btn-icon icon-left btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="far fa-add">高级搜索</i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="collapse" id="collapseExample">
+                            <div class="card">
                                 <form onsubmit="return check()">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="请输入查询条件" id="Categorykey" name="Categorykey">
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                    <div class="card-header">
+                                        <h4>高级搜索条件</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label for="inputaccount">账号</label>
+                                                <input type="text" class="form-control" id="inputaccount" placeholder="请输入账号名称">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputname">姓名</label>
+                                                <input type="text" class="form-control" id="inputname" placeholder="请输入姓名">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputcontact">联系电话</label>
+                                                <input type="number" class="form-control" id="inputcontact" placeholder="请输入联系电话" maxlength="11">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="selectorganize">所属组织</label>
+                                                <select class="form-control selectric" id="selectorganize">
+                                                    <option value="">请选择所属组织</option>
+                                                    <option value="0">女</option>
+                                                    <option value="1">男</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="selectdepartment">所属部门</label>
+                                                <select class="form-control selectric" id="selectdepartment">
+                                                    <option value="">请选择所属部门</option>
+                                                    <option value="0">女</option>
+                                                    <option value="1">男</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label class="d-block">有效标识</label>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="selectenabledmark1" name="selectenabledmark" class="custom-control-input" value="0">
+                                                    <label class="custom-control-label" for="selectenabledmark1">禁用</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="selectenabledmark2" name="selectenabledmark" class="custom-control-input" value="1">
+                                                    <label class="custom-control-label" for="selectenabledmark2">启用</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label class="d-block">性别</label>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="selectsex1" name="selectsex" class="custom-control-input" value="0">
+                                                    <label class="custom-control-label" for="selectenabledmark1">女</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="selectsex2" name="selectsex" class="custom-control-input" value="1">
+                                                    <label class="custom-control-label" for="selectenabledmark2">男</label>
+                                                </div>
+                                            </div>
                                         </div>
+                                    </div>
+
+                                    <div class="card-footer" style="display: flex; justify-content: center;margin-left: auto;display: flex;align-items: center;column-gap: 10px;">
+                                        <button class="btn btn-primary">查询</button>
+                                        <button class="btn btn-info" type="reset" onclick="resetfrom()">重置</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table table-striped" id="sortable-table">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">
-                                                <i class="fas fa-th" style="float: left;"></i>
-                                            </th>
-                                            <th>账号名称</th>
-                                            <th>创建日期</th>
-                                            <th>创建人</th>
-                                            <th>修改日期</th>
-                                            <th>修改人</th>
-                                            <th>操作</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if (Model != null)
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="sortable-table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            <i class="fas fa-th" style="float: left;"></i>
+                                        </th>
+                                        <th>账号</th>
+                                        <th>姓名</th>
+                                        <th>性别</th>
+                                        <th>联系电话</th>
+                                        <th>所属组织</th>
+                                        <th>所属部门</th>
+                                        <th>排序值</th>
+                                        <th>有效标识</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null && Model.Count > 0)
+                                    {
+                                        foreach (var item in Model)
                                         {
-                                            if (Model != null && Model.Count > 0)
-                                            {
-                                                foreach (var item in Model)
-                                                {
-                                                    <tr>
-                                                        <td>
-                                                            <div class="sort-handler">
-                                                                <i class="fas fa-th"></i>
-                                                            </div>
-                                                        </td>
-                                                        <td>@item.Account</td>
-                                                        <td>@item.CreateDate</td>
-                                                        <td>@item.CreateUserName</td>
-                                                        <td>@item.ModifyDate</td>
-                                                        <td>@item.ModifyUserName</td>
-                                                        <td style="white-space: nowrap;">
-                                                            <a href="@Href("~")/ExpandSystem/EditUserManage?Id=@item.Id" class="btn btn-icon btn-primary" data-toggle="tooltip" data-placement="top" title="编辑"><i class="far fa-edit"></i></a>
-                                                            <a href="javascript:void(0);" class="btn btn-icon btn-danger" onclick="deleteUser('@item.Id')" data-toggle="tooltip" data-placement="top" title="删除"><i class="fas fa-times"></i></a>
-                                                            <button type="button" class="btn btn-warning btn-icon icon-left distributionRole" value="@item.Id">
-                                                                <i class="fas ion-edit"></i> 分配角色
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                }
-                                            }
+                                            <tr>
+                                                <td>
+                                                    <div class="sort-handler">
+                                                        <i class="fas fa-th"></i>
+                                                    </div>
+                                                </td>
+                                                <td>@item.Account</td>
+                                                <td>@item.RealName</td>
+                                                <td>@item.Gender</td>
+                                                <td>@item.Mobile</td>
+                                                <td>@item.OrganizeId</td>
+                                                <td>@item.DepartmentId</td>
+                                                <td>@item.SortCode</td>
+                                                <td>@item.EnabledMark</td>
+                                                <td style="white-space: nowrap;">
+                                                    <a href="@Href("~")/ExpandSystem/EditUserManage?Id=@item.Id" class="btn btn-icon btn-primary" data-toggle="tooltip" data-placement="top" title="编辑"><i class="far fa-edit"></i></a>
+                                                    <a href="javascript:void(0);" class="btn btn-icon btn-danger" onclick="deleteUser('@item.Id')" data-toggle="tooltip" data-placement="top" title="删除"><i class="fas fa-times"></i></a>
+                                                    <button type="button" class="btn btn-warning btn-icon icon-left distributionRole" value="@item.Id">
+                                                        <i class="fas ion-edit"></i> 分配角色
+                                                    </button>
+                                                </td>
+                                            </tr>
                                         }
-                                    </tbody>
-                                </table>
-                            </div>
+                                    }
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    @*<div class="swal-overlay" tabindex="-1" id="swal-overlay" style="display:none;">
+    <div class="swal-modal" role="dialog" aria-modal="false">
+    <div class="swal-content">
+    <div class="form-group row mb-4" id="roles">
+    <label class="col-form-label text-md-right">角色：</label>
+    <div class="col-sm-12">
+    <select class="form-control select2" id="roleId">
+    @if (ViewBag.roleslist != null && ViewBag.roleslist.Count > 0)
+    {
+    foreach (var item in ViewBag.roleslist)
+    {
+    <option value="@item.RoleId">@item.RoleName</option>
+    }
+    }
+    </select>
+    </div>
+    </div>
+    </div><div class="swal-footer">
+    <div class="swal-button-container">
+    <button class="swal-button swal-button--confirm">确定</button>
+    </div>
+    </div>
+    </div>
+    </div>*@
 
-        @*<div class="swal-overlay" tabindex="-1" id="swal-overlay" style="display:none;">
-        <div class="swal-modal" role="dialog" aria-modal="false">
-        <div class="swal-content">
-        <div class="form-group row mb-4" id="roles">
-        <label class="col-form-label text-md-right">角色：</label>
-        <div class="col-sm-12">
-        <select class="form-control select2" id="roleId">
-        @if (ViewBag.roleslist != null && ViewBag.roleslist.Count > 0)
-        {
-        foreach (var item in ViewBag.roleslist)
-        {
-        <option value="@item.RoleId">@item.RoleName</option>
+    @Html.PagedListPager(Model, PageIndex => Url.Action("Index",
+    new
+    {
+    PageIndex,
+    PageSize = Model?.PageSize,
+    Categorykey = ViewBag.Pagination.Categorykey
+    }),
+    new PagedListRenderOptions
+    {
+    LinkToFirstPageFormat = "首页",
+    LinkToNextPageFormat = "下一页",
+    LinkToPreviousPageFormat = "上一页",
+    LinkToLastPageFormat = "末页",
+    MaximumPageNumbersToDisplay = 5,
+    DisplayItemSliceAndTotal = false,//从头到尾显示页码
+    UlElementClasses = new[] { "pagination"},  // 为ul li a 元素添加链接，使用ContainerDivClasses = new[] { "pagination" }替换 UlElementClasses = new[] { "pagination"},也是相同的效果。也可以不要此行代码，因为Bootstrap4与3相比，ul的class名没有变化，li 元素和a 元素加了page-item和page-link的类名。
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" },
+    })
+</section>
+
+<script>
+    //重置表单
+    function resetfrom()
+    {
+        //var selectedValue = $('input[name=selectenabledmark]:checked').val();
+        console.log(selectedValue);
+        $("#selectsex").val("");
+        $("#selectorganize").val("");
+        $("#selectdepartment").val("");
+        $("#selectenabledmark").val("");
+        $('#selectsex').selectric('refresh'); // 刷新Selectric插件以更新界面
+        $('#selectorganize').selectric('refresh'); // 刷新Selectric插件以更新界面
+        $('#selectdepartment').selectric('refresh'); // 刷新Selectric插件以更新界面
+        $('#selectenabledmark').selectric('refresh'); // 刷新Selectric插件以更新界面
+    }
+
+
+    $(function () {
+        $('.select2').select2();
+    });
+    $().ready(function () {
+        $("#swal-overlay").show();
+    })
+    function check() {
+        var Categorykey = $("#Categorykey").val();
+        if (Categorykey.length > 0) {
+            $("#Categorykey").val(Categorykey.trim());
         }
-        }
-        </select>
-        </div>
-        </div>
-        </div><div class="swal-footer">
-        <div class="swal-button-container">
-        <button class="swal-button swal-button--confirm">确定</button>
-        </div>
-        </div>
-        </div>
-        </div>*@
-
-        @Html.PagedListPager(Model, page => Url.Action("User",
-        new
-        {
-        page,
-        pageSize = Model?.PageSize,
-        Categorykey = ViewBag.Pagination.Categorykey,
-        menuId = ViewBag.menuId,
-        Account =ViewBag.model.Account
-        }),
-        new PagedListRenderOptions
-        {
-        LinkToFirstPageFormat = "首页",
-        LinkToNextPageFormat = "下一页",
-        LinkToPreviousPageFormat = "上一页",
-        LinkToLastPageFormat = "末页",
-        MaximumPageNumbersToDisplay = 5,
-        DisplayItemSliceAndTotal = false,//从头到尾显示页码
-        UlElementClasses = new[] { "pagination"},  // 为ul li a 元素添加链接，使用ContainerDivClasses = new[] { "pagination" }替换 UlElementClasses = new[] { "pagination"},也是相同的效果。也可以不要此行代码，因为Bootstrap4与3相比，ul的class名没有变化，li 元素和a 元素加了page-item和page-link的类名。
-        LiElementClasses = new[] { "page-item" },
-        PageClasses = new[] { "page-link" },
-        })
-        <script src="~/dist/assets/modules/sweetalert/sweetalert.min.js"></script>
-        <script src="~/dist/assets/js/page/modules-sweetalert.js"></script>
-        <script src="~/dist/assets/js/bootstrap-treeview.js"></script>
-        <script src="~/dist/assets/modules/select2/dist/js/select2.full.min.js"></script>
-        <script>
-
-            $(function () {
-                $('.select2').select2();
-            });
-
-            $().ready(function () {
-                $("#swal-overlay").show();
-            })
-            function check() {
-                var Categorykey = $("#Categorykey").val();
-                if (Categorykey.length > 0) {
-                    $("#Categorykey").val(Categorykey.trim());
-                }
-            }
-
-            function deleteUser(id) {
-                swal({
-                    title: '确定删除吗？',
-                    text: '一旦删除，您将无法恢复此数据！',
-                    icon: 'warning',
-                    buttons: true,
-                    dangerMode: true,
-                }).then((willDelete) => {
-                    if (willDelete) {
-                        $.ajax({
-                            type: "Post",
-                            dataType: "json",
-                            url: "@Href("~")/User/DeleteUser",
-                            data: {
-                                Id: id
-                            },
-                            async: false,
-                            success: function (data) {
-                                if (data.code == 400) {
-                                    swal(data.message, {
-                                        icon: 'error',
-                                    });
-                                }
-                                else if (data.code == 200) {
-                                    swal(data.message, {
-                                        icon: 'success',
-                                    })
-                                        .then(function (isConfirm) {
-                                            if (isConfirm === true) {
-                                                window.location.href = "@Href("~")/User/Index";
-                                            }
-                                        });
-                                }
-                                else {
-                                    swal(data.message, {
-                                        icon: 'error',
-                                    });
-                                }
-                            }
-                        })
+    }
+    function deleteUser(id) {
+        swal({
+            title: '确定删除吗？',
+            text: '一旦删除，您将无法恢复此数据！',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    type: "Post",
+                    dataType: "json",
+                    url: "@Href("~")/User/DeleteUser",
+                    data: {
+                        Id: id
+                    },
+                    async: false,
+                    success: function (data) {
+                        if (data.code == 400) {
+                            swal(data.message, {
+                                icon: 'error',
+                            });
+                        }
+                        else if (data.code == 200) {
+                            swal(data.message, {
+                                icon: 'success',
+                            })
+                                .then(function (isConfirm) {
+                                    if (isConfirm === true) {
+                                        window.location.href = "@Href("~")/User/Index";
+                                    }
+                                });
+                        }
+                        else {
+                            swal(data.message, {
+                                icon: 'error',
+                            });
+                        }
                     }
-                });
+                })
             }
-
-            $(".distributionRole").click(function () {
-                var accountId = $(this).val();
-                var roles = document.getElementById('roles');
-                //console.log(roles);
-                swal({
-                    content: roles
-                }).then((istrue) => {
-                    if (istrue) {
-                        var roleId = $("#roleId").val();
-                        $.ajax({
-                            type: "Post",
-                            dataType: "json",
-                            url: "/ExpandSystem/AssignRoles",
-                            data: {
-                                Id: accountId,
-                                roleId: roleId,
-                                menuId: '@ViewBag.menuId'
-                            },
-                            async: false,
-                            success: function (data) {
-                                if (data.code == 400) {
-                                    swal(data.message, {
-                                        icon: 'error',
-                                    }).then(function (isConfirm) {
-                                        if (isConfirm === true) {
-                                            window.location.href = "@Href("~")/ExpandSystem/UserManage";
-                                        }
-                                    });
+        });
+    }
+    $(".distributionRole").click(function () {
+        var accountId = $(this).val();
+        var roles = document.getElementById('roles');
+        //console.log(roles);
+        swal({
+            content: roles
+        }).then((istrue) => {
+            if (istrue) {
+                var roleId = $("#roleId").val();
+                $.ajax({
+                    type: "Post",
+                    dataType: "json",
+                    url: "/ExpandSystem/AssignRoles",
+                    data: {
+                        Id: accountId,
+                        roleId: roleId,
+                        menuId: '@ViewBag.menuId'
+                    },
+                    async: false,
+                    success: function (data) {
+                        if (data.code == 400) {
+                            swal(data.message, {
+                                icon: 'error',
+                            }).then(function (isConfirm) {
+                                if (isConfirm === true) {
+                                    window.location.href = "@Href("~")/ExpandSystem/UserManage";
                                 }
-                                else if (data.code == 200) {
-                                    swal(data.message, {
-                                        icon: 'success',
-                                    }).then(function (isConfirm) {
-                                        if (isConfirm === true) {
-                                            window.location.href = "@Href("~")/ExpandSystem/UserManage";
-                                        }
-                                    });
+                            });
+                        }
+                        else if (data.code == 200) {
+                            swal(data.message, {
+                                icon: 'success',
+                            }).then(function (isConfirm) {
+                                if (isConfirm === true) {
+                                    window.location.href = "@Href("~")/ExpandSystem/UserManage";
                                 }
-                                else {
-                                    swal(data.message, {
-                                        icon: 'error',
-                                    }).then(function (isConfirm) {
-                                        if (isConfirm === true) {
-                                            window.location.href = "@Href("~")/ExpandSystem/UserManage";
-                                        }
-                                    });
+                            });
+                        }
+                        else {
+                            swal(data.message, {
+                                icon: 'error',
+                            }).then(function (isConfirm) {
+                                if (isConfirm === true) {
+                                    window.location.href = "@Href("~")/ExpandSystem/UserManage";
                                 }
-                            }
-                        })
+                            });
+                        }
                     }
-                });;
-            });
-        </script>
-    </section>
-</body>
-</html>
+                })
+            }
+        });;
+    });
+</script>
 

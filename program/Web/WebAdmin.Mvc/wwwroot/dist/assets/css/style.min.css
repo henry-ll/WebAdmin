@@ -788,7 +788,10 @@ textarea.form-control {
         }
 
             .card .card-header h4 + .card-header-action, .card .card-header h4 + .card-header-form {
-                margin-left: auto
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+                column-gap: 10px;
             }
 
                 .card .card-header h4 + .card-header-action .btn, .card .card-header h4 + .card-header-form .btn {
@@ -3646,7 +3649,7 @@ body.layout-3 .main-footer {
 .main-footer {
     /*padding: 20px 30px 20px 280px;*/
     padding: 20px 0px 20px 280px;
-    margin-top: 40px;
+    /*margin-top: 40px;*/
     color: #98a6ad;
     border-top: 1px solid #e3eaef;
     display: inline-block;

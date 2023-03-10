@@ -13,6 +13,7 @@ namespace WebAdmin.Mvc.Controllers.Base
         private IIPLocatorProvider _ipLocatorProvider;
 
         private ILoginlogsService _loginlogsService;
+        private IUserService _userService;
 
         /// <summary>
         /// 初始化 依赖注入
@@ -20,23 +21,24 @@ namespace WebAdmin.Mvc.Controllers.Base
         /// <param name="mapper"></param>
         /// <param name="logger"></param>
         /// <param name="ipLocatorProvider"></param>
-        public UserController(IMapper mapper, ILogger logger, IIPLocatorProvider IPLocatorProvider, ILoginlogsService loginlogsService) : base(IPLocatorProvider)
+        public UserController(IMapper mapper, ILogger logger, IIPLocatorProvider IPLocatorProvider, ILoginlogsService loginlogsService, IUserService userService) : base(IPLocatorProvider)
         {
             _mapper = mapper;
             _logger = logger;
             _ipLocatorProvider = IPLocatorProvider;
             _loginlogsService = loginlogsService;
+            _userService = userService;
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pagination"></param>
         /// <returns></returns>
-        public IActionResult Index(Pagination pagination)
+        public async Task<IActionResult> Index(Pagination pagination)
         {
             pagination.OrderFiled = "CreateDate";
             pagination.OrderByType = "DESC";
-            IPagedList<UserEntity> list = new List<UserEntity>().ToPagedList();
+            var list =await _userService.GetPagedListAsync(pagination);
             ViewBag.Pagination = pagination;
             return View(list);
         }

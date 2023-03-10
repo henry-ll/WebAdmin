@@ -161,7 +161,7 @@ if (typeof jQuery === "undefined") {
         navTab: '<a data-id="{navTabId}" class="nav-link mt-nav-tab" data-type="{type}" data-index="{index}" data-url="{url}">{title}</a>',
         closeBtn: ' <i class="mt-close-tab mdi mdi-close" style="{style}"></i>',
         ajaxTabPane: '<div id="{tabPaneId}" class="tab-pane {class}">{content}</div>',
-        iframeTabPane: '<iframe id="{tabPaneId}" allowtransparency="true" class="tab-pane {class}" scrolling="no" width="100%"  height:"100%"; frameborder="0" src="" seamless></iframe>'
+        iframeTabPane: '<iframe id="{tabPaneId}" allowtransparency="true" class="tab-pane {class}" scrolling="yes" width="100%"  height:"100%"; frameborder="0" src="" seamless></iframe>'
     };
 
     /**
