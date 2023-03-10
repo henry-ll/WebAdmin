@@ -1,16 +1,6 @@
 ﻿@{
     ViewData["Title"] = "WebAdmin";
 }
-@using Microsoft.AspNetCore.Mvc;
-@using Newtonsoft.Json;
-@using WebAdmin.Repositories.Base;
-@using WebAdmin.Framework.Helper;
-@using Microsoft.AspNetCore.Http;
-@using WebAdmin.Framework.Configs;
-@using WebAdmin.Framework.Operators;
-@inject RolesUserRepository rolesUserRepository
-@inject RolesUserPermissionRepository rolesUserPermissionRepository
-@inject MenuTreeRepository menuTreeRepository
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -53,11 +43,18 @@
     <script src="~/dist/assets/modules/select2/dist/js/select2.full.min.js"></script>
     <script src="~/dist/assets/modules/bootstrap-multitabs/multitabs.min.js"></script>
     <script src="~/dist/assets/js/jquery.cookie.min.js"></script>
-    <script src="~/dist/assets/js/expand/index.min.js"></script>
+    <script src="~/dist/assets/modules/sweetalert/sweetalert.min.js"></script>
+    <script src="~/dist/assets/js/page/modules-sweetalert.js"></script>
+    <script src="~/dist/assets/js/bootstrap-treeview.js"></script>
+    <script src="~/dist/assets/modules/select2/dist/js/select2.full.min.js"></script>
+    <script src="~/dist/assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
+    <style>
+        .pagination-container {
+            float: right;
+        }
+    </style>
 </head>
-<body>
-    <section class="section">
-        @RenderBody()
-    </section>
+<body style="overflow-x:hidden">
+    @RenderBody()
 </body>
 </html>

@@ -70,7 +70,7 @@
     var rolesList = rolesUserPermissionRepository.Queryable().Where(x => x.RoleId == roleId).ToList();
     var treeList = menuTreeRepository.Queryable().Where(x => x.EnabledMark == 1).OrderBy(x => x.SortCode).ToList();
 }
-<body>
+<body style="overflow-y:hidden">
     <div id="app">
         <div class="main-wrapper">
             <div class="navbar-bg"></div>
@@ -212,7 +212,6 @@
     </div>
     <script>
         $(function () {
-            debugger
             var storage = JSON.parse(sessionStorage.multitabs || '{}');
             if (storage !== null) {
                 // 遍历对象的属性并输出到控制台

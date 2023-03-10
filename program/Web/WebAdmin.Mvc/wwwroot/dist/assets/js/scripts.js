@@ -105,13 +105,13 @@ $(function () {
 
     $(".main-content").css({
         minHeight: $(window).outerHeight() - 95,
-        height: $(window).outerHeight() - 95
+        height: $(window).outerHeight() - 57
     })
 
     window.addEventListener('resize', () => {
         $(".main-content").css({
             minHeight: $(window).outerHeight() - 95,
-            height: $(window).outerHeight() - 95
+            height: $(window).outerHeight() - 57
         })
     });
 

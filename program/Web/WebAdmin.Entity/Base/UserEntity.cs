@@ -53,10 +53,15 @@
         [SugarColumn(ColumnDataType = "varchar(50)", ColumnDescription = "联系电话", IsNullable = true)]
         public string? Mobile { get; set; }
         /// <summary>
-        /// 机构表主键Id
+        /// 所属组织（组织表主键Id）
         /// </summary>      
-        [SugarColumn(ColumnDataType = "varchar(50)", ColumnDescription = "机构表主键Id", IsNullable = true)]
+        [SugarColumn(ColumnDataType = "varchar(50)", ColumnDescription = "所属组织（组织表主键Id）", IsNullable = true)]
         public string? OrganizeId { get; set; }
+        /// <summary>
+        /// 所属部门（部门表主键Id）
+        /// </summary>      
+        [SugarColumn(ColumnDataType = "varchar(50)", ColumnDescription = "所属部门（部门表主键Id）", IsNullable = true)]
+        public string? DepartmentId { get; set; }
         /// <summary>
         /// 暂停用户登录结束日期
         /// </summary>      
@@ -77,6 +82,16 @@
         /// </summary>      
         [SugarColumn(ColumnDataType = "int", ColumnDescription = "登录次数", IsNullable = false)]
         public int LogOnCount { get; set; }
+        /// <summary>
+        /// JwtToKen
+        /// </summary>      
+        [SugarColumn(ColumnDataType = "varchar(1500)", ColumnDescription = "JwtToKen", IsNullable = true)]
+        public string? JwtToKen { get; set; }
+        /// <summary>
+        /// 登录次数
+        /// </summary>      
+        [SugarColumn(ColumnDataType = "int", ColumnDescription = "登录次数", IsNullable = false)]
+        public int LoginsNum { get; set; }
         /// <summary>
         /// 排序码
         /// </summary>      
@@ -122,17 +137,6 @@
         /// </summary>      
         [SugarColumn(ColumnDataType = "varchar(50)", ColumnDescription = "修改用户", IsNullable = true)]
         public string? ModifyUserName { get; set; }
-        /// <summary>
-        /// JwtToKen
-        /// </summary>      
-        [SugarColumn(ColumnDataType = "varchar(1500)", ColumnDescription = "JwtToKen", IsNullable = true)]
-        public string? JwtToKen { get; set; }
-        /// <summary>
-        /// 登录次数
-        /// </summary>      
-        [SugarColumn(ColumnDataType = "int", ColumnDescription = "登录次数", IsNullable = false)]
-        public int LoginsNum { get; set; }
-
         #endregion
 
         #region 添加/编辑操作
