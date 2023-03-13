@@ -34,12 +34,14 @@ namespace WebAdmin.Mvc.Controllers.Base
         /// </summary>
         /// <param name="pagination"></param>
         /// <returns></returns>
-        public async Task<IActionResult> Index(Pagination pagination)
+        public async Task<IActionResult> Index(Pagination pagination,UserDto param)
         {
+            var ss = HttpContext.Request;
             pagination.OrderFiled = "CreateDate";
             pagination.OrderByType = "DESC";
             var list =await _userService.GetPagedListAsync(pagination);
             ViewBag.Pagination = pagination;
+            ViewBag.Param = param;
             return View(list);
         }
     }

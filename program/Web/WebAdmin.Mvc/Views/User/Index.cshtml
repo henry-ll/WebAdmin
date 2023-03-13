@@ -52,19 +52,19 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
                                                 <label for="inputaccount">账号</label>
-                                                <input type="text" class="form-control" id="inputaccount" placeholder="请输入账号名称">
+                                                <input type="text" class="form-control" id="inputaccount" name="inputaccount" placeholder="请输入账号名称">
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="inputname">姓名</label>
-                                                <input type="text" class="form-control" id="inputname" placeholder="请输入姓名">
+                                                <input type="text" class="form-control" id="inputname" name="inputname" placeholder="请输入姓名">
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="inputcontact">联系电话</label>
-                                                <input type="number" class="form-control" id="inputcontact" placeholder="请输入联系电话" maxlength="11">
+                                                <input type="number" class="form-control" id="inputcontact" name="inputcontact" placeholder="请输入联系电话" maxlength="11">
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="selectorganize">所属组织</label>
-                                                <select class="form-control selectric" id="selectorganize">
+                                                <select class="form-control selectric" id="selectorganize" name="selectorganize">
                                                     <option value="">请选择所属组织</option>
                                                     <option value="0">女</option>
                                                     <option value="1">男</option>
@@ -72,7 +72,7 @@
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="selectdepartment">所属部门</label>
-                                                <select class="form-control selectric" id="selectdepartment">
+                                                <select class="form-control selectric" id="selectdepartment" name="selectdepartment">
                                                     <option value="">请选择所属部门</option>
                                                     <option value="0">女</option>
                                                     <option value="1">男</option>
@@ -81,23 +81,23 @@
                                             <div class="form-group col-md-4">
                                                 <label class="d-block">有效标识</label>
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="selectenabledmark1" name="selectenabledmark" class="custom-control-input" value="0">
-                                                    <label class="custom-control-label" for="selectenabledmark1">禁用</label>
+                                                    <input type="radio" id="radioenabledmark1" name="radioenabledmark" class="custom-control-input" value="0">
+                                                    <label class="custom-control-label" for="radioenabledmark1">禁用</label>
                                                 </div>
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="selectenabledmark2" name="selectenabledmark" class="custom-control-input" value="1">
-                                                    <label class="custom-control-label" for="selectenabledmark2">启用</label>
+                                                    <input type="radio" id="radioenabledmark2" name="radioenabledmark" class="custom-control-input" value="1">
+                                                    <label class="custom-control-label" for="radioenabledmark2">启用</label>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label class="d-block">性别</label>
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="selectsex1" name="selectsex" class="custom-control-input" value="0">
-                                                    <label class="custom-control-label" for="selectenabledmark1">女</label>
+                                                    <input type="radio" id="radiosex1" name="radiosex" class="custom-control-input" value="0">
+                                                    <label class="custom-control-label" for="radiosex1">女</label>
                                                 </div>
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="selectsex2" name="selectsex" class="custom-control-input" value="1">
-                                                    <label class="custom-control-label" for="selectenabledmark2">男</label>
+                                                    <input type="radio" id="radiosex2" name="radiosex" class="custom-control-input" value="1">
+                                                    <label class="custom-control-label" for="radiosex2">男</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,7 +105,7 @@
 
                                     <div class="card-footer" style="display: flex; justify-content: center;margin-left: auto;display: flex;align-items: center;column-gap: 10px;">
                                         <button class="btn btn-primary">查询</button>
-                                        <button class="btn btn-info" type="reset" onclick="resetfrom()">重置</button>
+                                        <button class="btn btn-info" type="reset" onclick="resetform()">重置</button>
                                     </div>
                                 </form>
                             </div>
@@ -212,28 +212,47 @@
 </section>
 
 <script>
-    //重置表单
-    function resetfrom()
-    {
-        //var selectedValue = $('input[name=selectenabledmark]:checked').val();
-        console.log(selectedValue);
-        $("#selectsex").val("");
-        $("#selectorganize").val("");
-        $("#selectdepartment").val("");
-        $("#selectenabledmark").val("");
-        $('#selectsex').selectric('refresh'); // 刷新Selectric插件以更新界面
-        $('#selectorganize').selectric('refresh'); // 刷新Selectric插件以更新界面
-        $('#selectdepartment').selectric('refresh'); // 刷新Selectric插件以更新界面
-        $('#selectenabledmark').selectric('refresh'); // 刷新Selectric插件以更新界面
-    }
-
-
     $(function () {
+        fullform();
         $('.select2').select2();
     });
     $().ready(function () {
         $("#swal-overlay").show();
     })
+
+    //重置表单
+    function resetform()
+    {
+        $("#selectorganize").val("");
+        $("#selectdepartment").val("");
+        $('#selectorganize').selectric('refresh'); // 刷新Selectric插件以更新界面
+        $('#selectdepartment').selectric('refresh'); // 刷新Selectric插件以更新界面
+    }
+
+    function fullform()
+    {
+        $("#inputaccount").val("@ViewBag.Param.inputaccount");
+        $("#inputname").val("@ViewBag.Param.inputname");
+        $("#inputcontact").val("@ViewBag.Param.inputcontact");
+        $("#selectorganize").val("@ViewBag.Param.selectorganize");
+        $("#selectdepartment").val("@ViewBag.Param.selectdepartment");
+        if ("@ViewBag.Param.radiosex" =="0") {
+            $("#radiosex1").attr("checked", true);
+        }
+        else if ("@ViewBag.Param.radiosex" == "1") {
+            $("#radiosex2").attr("checked", true);
+        }
+        if ("@ViewBag.Param.radioenabledmark" == "0") {
+            $("#radioenabledmark1").attr("checked", true);
+        }
+        else if ("@ViewBag.Param.radioenabledmark" == "1") {
+            $("#radioenabledmark2").attr("checked", true);
+        }
+
+        $('#selectorganize').selectric('refresh'); // 刷新Selectric插件以更新界面
+        $('#selectdepartment').selectric('refresh'); // 刷新Selectric插件以更新界面
+    }
+
     function check() {
         var Categorykey = $("#Categorykey").val();
         if (Categorykey.length > 0) {
